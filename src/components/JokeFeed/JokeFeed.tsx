@@ -3,6 +3,7 @@ import { useJokeContext } from "../../context/jokes";
 import { TChuckJoke } from "../../api/chuck-api";
 import { useFavoriteContext } from "../../context/favorites";
 import { MAX_FAVORITED_JOKES } from "../../database/localstorage";
+import PageHeader from "../PageHeader/PageHeader";
 
 const JokeFeed = () => {
   const { isLoading, jokes, setJokeIntervalMode, jokeIntervalMode } =
@@ -32,10 +33,10 @@ const JokeFeed = () => {
   return (
     <>
       <div className="flex justify-between">
-        <div className="mb-6">
-          <h2>The latest Chuck Jokes!</h2>
-          <p>Click on a joke to add it to your favorites</p>
-        </div>
+        <PageHeader
+          title="The latest Chuck Jokes!"
+          subtitle="Click on a joke to add it to your favorites"
+        />
         <button
           disabled={isLoading}
           onClick={() => setJokeIntervalMode((qMode) => !qMode)}

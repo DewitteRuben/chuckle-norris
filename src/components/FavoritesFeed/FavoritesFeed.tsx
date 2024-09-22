@@ -1,5 +1,6 @@
 import { useFavoriteContext } from "../../context/favorites";
 import JokeCard from "../JokeCard/JokeCard";
+import PageHeader from "../PageHeader/PageHeader";
 
 const FavoritesFeed = () => {
   const { favorites, removeFavorite } = useFavoriteContext();
@@ -10,19 +11,19 @@ const FavoritesFeed = () => {
 
   if (!favorites.length) {
     return (
-      <div className="mb-6">
-        <h2>You currently have no favorite jokes :(</h2>
-        <p>Click on a joke on the home page to save it to your favorites!</p>
-      </div>
+      <PageHeader
+        title="You currently have no favorite jokes :("
+        subtitle="Click on a joke on the home page to save it to your favorites!"
+      />
     );
   }
 
   return (
     <>
-      <div className="mb-6">
-        <h2>Your collection of favorite jokes!</h2>
-        <p>Click on a joke to remove it from your favorites</p>
-      </div>
+      <PageHeader
+        title="Your collection of favorite jokes!"
+        subtitle="Click on a joke to remove it from your favorites!"
+      />
       <div className="flex flex-col gap-6">
         {favorites.map((joke) => (
           <JokeCard
