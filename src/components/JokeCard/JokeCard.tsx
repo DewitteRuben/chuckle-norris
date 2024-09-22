@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React from "react";
 
 type TJokeCardProps = {
@@ -17,6 +18,12 @@ const JokeCard: React.FC<TJokeCardProps> = ({ joke, favorited, onClick }) => {
       <span>{joke}</span>
     </div>
   );
+};
+
+JokeCard.propTypes = {
+  joke: PropTypes.string.isRequired,
+  favorited: PropTypes.bool,
+  onClick: PropTypes.func,
 };
 
 export default JokeCard;
