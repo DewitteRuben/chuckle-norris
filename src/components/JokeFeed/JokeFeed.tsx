@@ -5,6 +5,8 @@ import { useFavoriteContext } from "../../context/favorites";
 import { MAX_FAVORITED_JOKES } from "../../database/localstorage";
 import PageHeader from "../PageHeader/PageHeader";
 import FeedContainer from "../FeedContainer";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
+import React from "react";
 
 const JokeFeed = () => {
   const { isLoading, jokes, setJokeIntervalMode, jokeIntervalMode } =
@@ -50,22 +52,34 @@ const JokeFeed = () => {
             : "Receive more jokes!"}
         </button>
       </div>
-      <FeedContainer>
+      <TransitionGroup component={FeedContainer}>
         {jokes.map((joke) => {
           const isFavorite = !!favorites.find(
             (favJoke) => favJoke.id === joke.id,
           );
 
+          const itemRef = React.createRef<HTMLDivElement>();
+
           return (
-            <JokeCard
-              favorited={isFavorite}
+            <CSSTransition
+              timeout={500}
+              unmountOnExit
+              nodeRef={itemRef}
+              classNames={{
+                exitActive: "transition-opacity opacity-0 duration-500",
+              }}
               key={joke.id}
-              onClick={() => onCardClick(joke)}
-              joke={joke.value}
-            />
+            >
+              <JokeCard
+                favorited={isFavorite}
+                joke={joke.value}
+                ref={itemRef}
+                onClick={() => onCardClick(joke)}
+              />
+            </CSSTransition>
           );
         })}
-      </FeedContainer>
+      </TransitionGroup>
     </>
   );
 };
