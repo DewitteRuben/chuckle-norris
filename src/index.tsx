@@ -5,13 +5,19 @@ import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import { RouterProvider } from "react-router-dom";
 import router from "./router";
+import { JokeContextProvider } from "./context/jokes";
+import { FavoriteContextProvider } from "./context/favorites";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement,
 );
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <FavoriteContextProvider>
+      <JokeContextProvider>
+        <RouterProvider router={router} />
+      </JokeContextProvider>
+    </FavoriteContextProvider>
   </React.StrictMode>,
 );
 

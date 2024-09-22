@@ -12,15 +12,15 @@ class ChuckAPI {
   private baseURL: string;
   constructor() {
     this.baseURL = "https://api.chucknorris.io";
-    this.getRandomQuote = this.getRandomQuote.bind(this);
+    this.getRandomJoke = this.getRandomJoke.bind(this);
   }
 
-  getRandomQuote(): Promise<TChuckJoke> {
+  getRandomJoke(): Promise<TChuckJoke> {
     return fetch(this.baseURL + "/jokes/random").then((res) => res.json());
   }
 
-  getRandomQuotes(amount: number) {
-    return Promise.all(Array.from({ length: amount }).map(this.getRandomQuote));
+  getRandomJokes(amount: number) {
+    return Promise.all(Array.from({ length: amount }).map(this.getRandomJoke));
   }
 }
 

@@ -1,30 +1,30 @@
 import chuckAPI from "./chuck-api";
 
 describe("ChuckAPI", () => {
-  it("should fetch a random quote", async () => {
-    const quote = await chuckAPI.getRandomQuote();
+  it("should fetch a random joke", async () => {
+    const joke = await chuckAPI.getRandomJoke();
 
-    expect(quote).toHaveProperty("categories");
-    expect(quote).toHaveProperty("created_at");
-    expect(quote).toHaveProperty("icon_url");
-    expect(quote).toHaveProperty("id");
-    expect(quote).toHaveProperty("updated_at");
-    expect(quote).toHaveProperty("url");
-    expect(quote).toHaveProperty("value");
+    expect(joke).toHaveProperty("categories");
+    expect(joke).toHaveProperty("created_at");
+    expect(joke).toHaveProperty("icon_url");
+    expect(joke).toHaveProperty("id");
+    expect(joke).toHaveProperty("updated_at");
+    expect(joke).toHaveProperty("url");
+    expect(joke).toHaveProperty("value");
   });
 
-  it("should fetch multiple random quotes", async () => {
-    const quotes = await chuckAPI.getRandomQuotes(2);
+  it("should fetch multiple random jokes", async () => {
+    const jokes = await chuckAPI.getRandomJokes(2);
 
-    expect(quotes.length).toBe(2);
-    quotes.forEach((quote) => {
-      expect(quote).toHaveProperty("categories");
-      expect(quote).toHaveProperty("created_at");
-      expect(quote).toHaveProperty("icon_url");
-      expect(quote).toHaveProperty("id");
-      expect(quote).toHaveProperty("updated_at");
-      expect(quote).toHaveProperty("url");
-      expect(quote).toHaveProperty("value");
+    expect(jokes.length).toBe(2);
+    jokes.forEach((joke) => {
+      expect(joke).toHaveProperty("categories");
+      expect(joke).toHaveProperty("created_at");
+      expect(joke).toHaveProperty("icon_url");
+      expect(joke).toHaveProperty("id");
+      expect(joke).toHaveProperty("updated_at");
+      expect(joke).toHaveProperty("url");
+      expect(joke).toHaveProperty("value");
     });
   });
 });

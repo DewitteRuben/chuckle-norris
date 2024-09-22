@@ -1,5 +1,7 @@
+import JokeFeed from "../components/JokeFeed/JokeFeed";
+
 const Home = () => {
-  return <div>Home</div>;
+  return <JokeFeed />;
 };
 
 export default Home;
