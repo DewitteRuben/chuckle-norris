@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/chuckle-norris/static/css/main.369a404e.css",
-    "main.js": "/chuckle-norris/static/js/main.2247b17e.js",
+    "main.css": "/chuckle-norris/static/css/main.773b9575.css",
+    "main.js": "/chuckle-norris/static/js/main.a5e4f422.js",
     "static/js/453.c7a85c9b.chunk.js": "/chuckle-norris/static/js/453.c7a85c9b.chunk.js",
     "index.html": "/chuckle-norris/index.html",
-    "main.369a404e.css.map": "/chuckle-norris/static/css/main.369a404e.css.map",
-    "main.2247b17e.js.map": "/chuckle-norris/static/js/main.2247b17e.js.map",
+    "main.773b9575.css.map": "/chuckle-norris/static/css/main.773b9575.css.map",
+    "main.a5e4f422.js.map": "/chuckle-norris/static/js/main.a5e4f422.js.map",
     "453.c7a85c9b.chunk.js.map": "/chuckle-norris/static/js/453.c7a85c9b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.369a404e.css",
-    "static/js/main.2247b17e.js"
+    "static/css/main.773b9575.css",
+    "static/js/main.a5e4f422.js"
   ]
 }
