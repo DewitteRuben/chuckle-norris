@@ -1,5 +1,7 @@
+import FavoritesFeed from "../components/FavoritesFeed/FavoritesFeed";
+
 const Favorites = () => {
-  return <div>Favorites</div>;
+  return <FavoritesFeed />;
 };
 
 export default Favorites;
