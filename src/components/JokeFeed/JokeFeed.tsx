@@ -1,9 +1,29 @@
 import JokeCard from "../JokeCard/JokeCard";
 import { useJokeContext } from "../../context/jokes";
+import { TChuckJoke } from "../../api/chuck-api";
+import { useFavoriteContext } from "../../context/favorites";
+import { MAX_FAVORITED_JOKES } from "../../database/localstorage";
 
 const JokeFeed = () => {
   const { isLoading, jokes, setJokeIntervalMode, jokeIntervalMode } =
     useJokeContext();
+  const { setFavorite, removeFavorite, favorites } = useFavoriteContext();
+
+  const onCardClick = (joke: TChuckJoke) => {
+    const isFavorite = !!favorites.find((favJoke) => favJoke.id === joke.id);
+
+    if (isFavorite) {
+      removeFavorite(joke.id);
+      return;
+    }
+
+    if (favorites.length === MAX_FAVORITED_JOKES) {
+      alert(`You cannot favorite more than ${MAX_FAVORITED_JOKES} jokes!`);
+      return;
+    }
+
+    setFavorite(joke);
+  };
 
   if (isLoading) {
     return <div>Loading...</div>;
@@ -30,7 +50,18 @@ const JokeFeed = () => {
       </div>
       <div className="flex flex-col gap-6">
         {jokes.map((joke) => {
-          return <JokeCard key={joke.id} joke={joke.value} />;
+          const isFavorite = !!favorites.find(
+            (favJoke) => favJoke.id === joke.id,
+          );
+
+          return (
+            <JokeCard
+              favorited={isFavorite}
+              key={joke.id}
+              onClick={() => onCardClick(joke)}
+              joke={joke.value}
+            />
+          );
         })}
       </div>
     </>
