@@ -1,7 +1,8 @@
 {
-  "name": "chuckle-norris",
+  "name": "@dewitteruben/chuckle-norris",
   "version": "0.1.0",
-  "private": true,
+  "homepage": "https://dewitteruben.github.io/chuckle-norris",
+  "private": false,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/user-event": "^13.5.0",
@@ -20,9 +21,14 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "test": "react-scripts test --watchAll=false --passWithNoTests",
     "eject": "react-scripts eject",
     "prepare": "husky"
+  },
+  "publishConfig": {
+    "@dewitteruben:registry": "https://npm.pkg.github.com"
   },
   "eslintConfig": {
     "extends": [
@@ -50,6 +56,7 @@
     "@testing-library/react": "^16.0.1",
     "eslint": "^8.57.1",
     "eslint-plugin-react": "^7.36.1",
+    "gh-pages": "^6.1.1",
     "globals": "^15.9.0",
     "husky": "^9.1.6",
     "lint-staged": "^15.2.10",
