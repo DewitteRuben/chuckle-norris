@@ -1,4 +1,5 @@
 import { useFavoriteContext } from "../../context/favorites";
+import FeedContainer from "../FeedContainer";
 import JokeCard from "../JokeCard/JokeCard";
 import PageHeader from "../PageHeader/PageHeader";
 
@@ -24,7 +25,7 @@ const FavoritesFeed = () => {
         title="Your collection of favorite jokes!"
         subtitle="Click on a joke to remove it from your favorites!"
       />
-      <div className="flex flex-col gap-6">
+      <FeedContainer>
         {favorites.map((joke) => (
           <JokeCard
             key={joke.id}
@@ -32,7 +33,7 @@ const FavoritesFeed = () => {
             onClick={() => onCardClick(joke.id)}
           />
         ))}
-      </div>
+      </FeedContainer>
     </>
   );
 };

@@ -4,6 +4,7 @@ import { TChuckJoke } from "../../api/chuck-api";
 import { useFavoriteContext } from "../../context/favorites";
 import { MAX_FAVORITED_JOKES } from "../../database/localstorage";
 import PageHeader from "../PageHeader/PageHeader";
+import FeedContainer from "../FeedContainer";
 
 const JokeFeed = () => {
   const { isLoading, jokes, setJokeIntervalMode, jokeIntervalMode } =
@@ -49,7 +50,7 @@ const JokeFeed = () => {
             : "Receive more jokes!"}
         </button>
       </div>
-      <div className="flex flex-col gap-6">
+      <FeedContainer>
         {jokes.map((joke) => {
           const isFavorite = !!favorites.find(
             (favJoke) => favJoke.id === joke.id,
@@ -64,7 +65,7 @@ const JokeFeed = () => {
             />
           );
         })}
-      </div>
+      </FeedContainer>
     </>
   );
 };
