@@ -20,12 +20,12 @@ beforeEach(() => {
 });
 
 describe("Local Storage Favorite Functions", () => {
-  test("getFavoritesFromStorage returns null if no favorites", () => {
+  it("getFavoritesFromStorage returns null if no favorites", () => {
     (localStorage.getItem as jest.Mock).mockReturnValue(null);
     expect(getFavoritesFromStorage()).toBeNull();
   });
 
-  test("getFavoritesFromStorage returns parsed favorites", () => {
+  it("getFavoritesFromStorage returns parsed favorites", () => {
     const favorites = [{ id: "1", joke: "Chuck Norris walks into a bar." }];
     (localStorage.getItem as jest.Mock).mockReturnValue(
       JSON.stringify(favorites),
@@ -33,7 +33,7 @@ describe("Local Storage Favorite Functions", () => {
     expect(getFavoritesFromStorage()).toEqual(favorites);
   });
 
-  test("setFavoritesInStorage saves favorites to localStorage", () => {
+  it("setFavoritesInStorage saves favorites to localStorage", () => {
     const favorites: TChuckJoke[] = [
       {
         id: "1",
@@ -54,7 +54,7 @@ describe("Local Storage Favorite Functions", () => {
     );
   });
 
-  test("setFavoriteInStorage adds a favorite successfully", () => {
+  it("setFavoriteInStorage adds a favorite successfully", () => {
     const joke = {
       id: "1",
       value: "Chuck Norris can divide by zero.",
@@ -74,7 +74,7 @@ describe("Local Storage Favorite Functions", () => {
     );
   });
 
-  test("setFavoriteInStorage throws error if joke already exists", () => {
+  it("setFavoriteInStorage throws error if joke already exists", () => {
     const joke = {
       id: "1",
       value: "Chuck Norris can divide by zero.",
@@ -92,7 +92,7 @@ describe("Local Storage Favorite Functions", () => {
     );
   });
 
-  test("setFavoriteInStorage throws error if joke already has been stored", () => {
+  it("setFavoriteInStorage throws error if joke already has been stored", () => {
     const favorites = Array.from({ length: MAX_FAVORITED_JOKES }, (_, i) => ({
       id: `${i}`,
       joke: `Joke ${i}`,
@@ -117,7 +117,7 @@ describe("Local Storage Favorite Functions", () => {
     );
   });
 
-  test("setFavoriteInStorage throws error if maximum jokes reached", () => {
+  it("setFavoriteInStorage throws error if maximum jokes reached", () => {
     const favorites = Array.from({ length: MAX_FAVORITED_JOKES }, (_, i) => ({
       id: `${i}`,
       joke: `Joke ${i}`,
@@ -142,7 +142,7 @@ describe("Local Storage Favorite Functions", () => {
     );
   });
 
-  test("remoteFavoritesFromStorage removes a favorite", () => {
+  it("remoteFavoritesFromStorage removes a favorite", () => {
     const favorites = [{ id: "1", joke: "Chuck Norris walks into a bar." }];
     (localStorage.getItem as jest.Mock).mockReturnValue(
       JSON.stringify(favorites),
@@ -154,7 +154,7 @@ describe("Local Storage Favorite Functions", () => {
     );
   });
 
-  test("remoteFavoritesFromStorage does nothing if favorites are null", () => {
+  it("remoteFavoritesFromStorage does nothing if favorites are null", () => {
     (localStorage.getItem as jest.Mock).mockReturnValue(null);
     remoteFavoritesFromStorage("1");
     expect(localStorage.setItem).not.toHaveBeenCalled();
