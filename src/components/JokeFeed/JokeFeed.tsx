@@ -33,7 +33,7 @@ const JokeFeed = () => {
 
   return (
     <>
-      <div className="flex justify-between">
+      <div className="flex sm:flex-row sm:justify-between flex-col">
         <PageHeader
           title="The latest Chuck Jokes!"
           subtitle="Click on a joke to add it to your favorites"
