@@ -12,6 +12,10 @@ body {
   background-color: #e0e0e0;
 }
 
+h2 {
+  @apply text-lg font-bold mb-1;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
