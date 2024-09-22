@@ -3,7 +3,6 @@ import pluginJs from "@eslint/js";
 import tseslint from "typescript-eslint";
 import pluginReact from "eslint-plugin-react";
 
-
 export default [
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
@@ -11,10 +10,10 @@ export default [
   {
     settings: {
       react: {
-        version: "detect"
-      }
+        version: "detect",
+      },
     },
-    files: ['**/*.{js,jsx,mjs,cjs,ts,tsx}'],
+    files: ["**/*.{js,jsx,mjs,cjs,ts,tsx}"],
     plugins: {
       pluginReact,
     },
@@ -29,7 +28,7 @@ export default [
       },
     },
     rules: {
-      'react/react-in-jsx-scope': 'off',
+      "react/react-in-jsx-scope": "off",
     },
   },
   { ignores: ["build/*", "*.config.js"] },
