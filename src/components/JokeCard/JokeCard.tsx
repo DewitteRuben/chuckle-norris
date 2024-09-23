@@ -21,7 +21,7 @@ const JokeCard = React.forwardRef<HTMLDivElement, TJokeCardProps>(
         onClick={handleOnClick}
         style={{ ...(favorited && { backgroundColor: "#f15a2433" }) }}
         data-testid="joke-card"
-        className="p-6 bg-white min-h-[100px] rounded-md text-xl text-center hover:opacity-60 hover:cursor-pointer"
+        className="p-6 bg-white min-h-[100px] rounded-md text-xl text-center hover:opacity-60 hover:cursor-pointer break-words"
       >
         <span>{joke}</span>
       </div>
