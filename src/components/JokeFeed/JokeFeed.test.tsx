@@ -32,16 +32,6 @@ describe("JokeFeed", () => {
     });
   });
 
-  it("renders the loading state", () => {
-    (useJokeContext as jest.Mock).mockReturnValueOnce({
-      isLoading: true,
-      jokes: [],
-    });
-
-    render(<JokeFeed />);
-    expect(screen.getByText(/loading/i)).toBeInTheDocument();
-  });
-
   it("renders a joke", () => {
     const mockJokes = [{ id: 1, value: "Chuck Norris joke 1" }];
     (useJokeContext as jest.Mock).mockReturnValueOnce({

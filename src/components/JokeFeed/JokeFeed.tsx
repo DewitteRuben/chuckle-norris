@@ -30,10 +30,6 @@ const JokeFeed = () => {
     setFavorite(joke);
   };
 
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
-
   return (
     <>
       <div className="flex sm:flex-row sm:justify-between flex-col">
@@ -60,11 +56,15 @@ const JokeFeed = () => {
 
           return (
             <CSSTransition
-              timeout={500}
+              timeout={300}
               unmountOnExit
               nodeRef={itemRef}
               classNames={{
-                exitActive: "transition-opacity opacity-0 duration-500",
+                appear: "opacity-0",
+                appearActive: "transition-opacity duration-300 opacity-100",
+                enter: "opacity-0",
+                enterActive: "transition-opacity duration-300 opacity-100",
+                exitActive: "transition-opacity duration-300 opacity-0",
               }}
               key={joke.id}
             >

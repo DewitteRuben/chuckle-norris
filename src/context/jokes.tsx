@@ -37,12 +37,26 @@ export const JokeContextProvider = ({
 
   React.useEffect(() => {
     const fetchJokes = async () => {
+      setLoading(true);
+
+      const jokeTasks = [];
+
+      for (let i = 0; i < MAX_JOKE_AMOUNT; i++) {
+        const jokeTask = chuckAPI.getRandomJoke().then((joke) => {
+          setJokes((jokes) => {
+            if (jokes.length < MAX_JOKE_AMOUNT) {
+              return [...jokes, joke];
+            }
+
+            return jokes;
+          });
+        });
+
+        jokeTasks.push(jokeTask);
+      }
+
       try {
-        setLoading(true);
-
-        const resultJokes = await chuckAPI.getRandomJokes(MAX_JOKE_AMOUNT);
-
-        setJokes(resultJokes);
+        await Promise.all(jokeTasks);
       } catch (error) {
         console.error(error);
       } finally {
