@@ -13,6 +13,15 @@ This project was developed as part of a technical interview assignment to showca
 - **Jest**: For comprehensive unit testing.
 - **GitHub Actions**: Setting up Continuous Integration/Continuous Deployment (CI/CD) pipelines.
 
+## Development
+
+To run the project, use the following commands:
+
+```
+npm install
+npm start
+```
+
 ## Live site
 
 The project is automatically deployed to GitHub Pages via GitHub Actions.
