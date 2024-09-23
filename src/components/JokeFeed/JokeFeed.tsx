@@ -7,6 +7,7 @@ import PageHeader from "../PageHeader/PageHeader";
 import FeedContainer from "../FeedContainer";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import React from "react";
+import Button from "../Button/Button";
 
 const JokeFeed = () => {
   const { isLoading, jokes, setJokeIntervalMode, jokeIntervalMode } =
@@ -40,17 +41,14 @@ const JokeFeed = () => {
           title="The latest Chuck Jokes!"
           subtitle="Click on a joke to add it to your favorites"
         />
-        <button
-          disabled={isLoading}
+        <Button
+          loading={isLoading}
           onClick={() => setJokeIntervalMode((qMode) => !qMode)}
-          className={`font-bold rounded-lg text-md mb-6 p-4 bg-[#4DB6AC] hover:bg-[#379D8F] text-[#ffffff] justify-center ${
-            isLoading ? "opacity-50 cursor-not-allowed" : ""
-          }`}
         >
           {jokeIntervalMode
             ? "Stop receiving more jokes!"
             : "Receive more jokes!"}
-        </button>
+        </Button>
       </div>
       <TransitionGroup component={FeedContainer}>
         {jokes.map((joke) => {
